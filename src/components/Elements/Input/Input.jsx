@@ -4,7 +4,7 @@ const Input = (props) => {
   const { type = 'text', className, placeholder, id ,username} = props;
   return (
     <div>
-      <div className="w-72">
+    
         <input
         username={username}
           id={id}
@@ -12,7 +12,6 @@ const Input = (props) => {
           placeholder={placeholder}
           className={`px-3 py-2 border border-gray-300 rounded ${className}`}
         />
-      </div>
     </div>
   );
 };

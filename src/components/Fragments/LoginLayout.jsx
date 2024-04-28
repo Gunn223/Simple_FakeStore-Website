@@ -18,8 +18,13 @@ const LoginLayout = () => {
     LoginAuth(data, (status, res) => {
       if (status) {
         localStorage.setItem('token', res);
-
-        window.location.href = '/';
+        swal({
+          title: "Login Successfull!",
+          icon: "success",
+        });
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000);
       } else {
         SetLogin(res.response.data);
       }
@@ -27,36 +32,39 @@ const LoginLayout = () => {
   };
 
   return (
-    <div className="pb-5">
-      <img
-        src="https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.2.1820924258.1689604525&semt=sph"
-        alt="userIcon"
-        className="w-1/4 mx-auto "
-      />
-      <h1 className="text-center text-2xl font-semibold">Welcome Back</h1>
-      <p className="text-center opacity-60 mb-5">Login Akun Dahulu</p>
-      <div className="flex justify-center flex-col items-center">
-        <form onSubmit={handleLogin}>
-          <Input
-            username="username"
-            id="username"
-            type="text"
-            placeholder="Username"
-            className="w-full rounded-xl mb-5"
-          />
-
-          <Input
-            username="password"
-            id="password"
-            type="password"
-            placeholder="password"
-            className="w-full rounded-xl"
-          />
+  <div className='h-[55%] border-2 rounded-md border-separate w-[40%] bg-white shadow-md '>
+      <h1 className="text-center text-5xl font-semibold mt-10 bitter">Login</h1>
+    <div className="flex flex-col justify-center items-center h-2/3">
+      <div className="flex w-full justify-center flex-col items-center">
+        <form onSubmit={handleLogin} className=' w-3/4'>
+          <div className="mb-5">
+            <label htmlFor="username" >Username
+            <span className='text-red-500'>*</span></label>
+            <Input
+              username="username"
+              id="username"
+              type="text"
+              placeholder="Username"
+              className="w-full rounded-xl"
+            />
+          </div>
+          <div>
+            <label htmlFor="password" >Password
+            <span className='text-red-500'>*</span></label>
+            <Input
+              username="password"
+              id="password"
+              type="password"
+              placeholder="Password"
+              className="w-full rounded-xl"
+            />
+          </div>
           <p className="text-red-500 ">{Login}</p>
-          <Button className="mt-5 px-6 py-2 rounded-xl hover:bg-sky-600">Login</Button>
+          <Button className="mt-5 px-6 py-2 rounded-xl hover:bg-sky-600 bg-sky-500">Login</Button>
         </form>
       </div>
     </div>
+  </div>
   );
 };
 

@@ -24,3 +24,11 @@ export const getDetailProduct = async (id, data) => {
     console.log(error);
   }
 };
+export const getSpecificCategory = async (query, data) => {
+  try {
+    const res = await axios.get(`https://fakestoreapi.com/products/category/${query}`);
+    data(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};

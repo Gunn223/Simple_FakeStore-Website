@@ -65,7 +65,7 @@ const DetailsProductLayout = () => {
                 <div className="space-x-2 flex text-sm">
                   <div className="w-24 border-2  rounded-full flex justify-between items-center">
                     <button
-                      className="rounded-full px-0 py-0 w-8 h-8"
+                      className="rounded-full px-0 py-0 w-8 h-8 "
                       onClick={(e) => {
                         e.preventDefault();
 
@@ -90,7 +90,7 @@ const DetailsProductLayout = () => {
                 <div className="flex-auto flex space-x-4">
                   <Button
                     disabled={count === 0}
-                    className="h-10 px-6 rounded-xl hover:text-black"
+                    className="h-10 px-6 rounded-xl hover:text-black bg-sky-500"
                     type="submit">
                     Add To Cart
                   </Button>

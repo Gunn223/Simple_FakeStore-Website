@@ -46,16 +46,27 @@ const CartLayout = () => {
     }
   }, [product]);
   const handleBuyProduct = () => {
-    const confirm = window.confirm('Apakah Anda Yakin Ingin Membeli ?');
-    if (confirm) {
-      swal('Berhasil', 'Terimakasih Telah Membeli', 'success');
-      localStorage.removeItem('Cart');
-      setTimeout(() => {
-        window.location.reload(true);
-      }, 2000);
-    } else {
-      window.location.reload(true);
-    }
+    swal({
+      title: "Are you sure?",
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("success buy products", {
+          icon: "success",
+        });
+        localStorage.removeItem('Cart')
+        setTimeout(() => {
+          
+          window.location.reload();
+        }, 2000);
+      } else {
+        swal("canceled buy products");
+      }
+    });
   };
   return (
     <>
